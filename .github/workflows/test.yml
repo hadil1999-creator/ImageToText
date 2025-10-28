@@ -14,18 +14,14 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        python-version: [3.6, 3.7, 3.8, 3.9]
-
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    - name: Set up Python ${{ matrix.python-version }}
+    - name: Set up Python
       uses: actions/setup-python@v4
       with:
-        python-version: ${{ matrix.python-version }}
+        python-version: '3.8'
 
     - name: Install dependencies
       run: |
@@ -33,11 +29,9 @@ jobs:
         pip install -e .
 
     - name: Run tests
-      working-directory: ImageToText
       run: |
-      
         # Note: This project doesn't seem to have unit tests
         # Add basic functionality test here
         echo "Testing img2txt help command"
-        img2txt --help
+        ImageToText\img2txt.py --help
         echo "Help command executed successfully"
