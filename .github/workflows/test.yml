@@ -33,5 +33,5 @@ jobs:
         # Note: This project doesn't seem to have unit tests
         # Add basic functionality test here
         echo "Testing img2txt help command"
-        ImageToText/img2txt.py --help
+        img2txt.py --help
         echo "Help command executed successfully"
